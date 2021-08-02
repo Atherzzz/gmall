@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
-public class GmallUserWebApplication{
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class GmallUserWebApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GmallUserWebApplication.class, args);

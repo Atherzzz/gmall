@@ -20,28 +20,31 @@ public class AttrController {
 
     @Reference
     AttrService attrService;
+
     @RequestMapping("attrInfoList")
     @ResponseBody
-    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
+    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
         List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrService.attrInfoList(catalog3Id);
         return pmsBaseAttrInfos;
     }
 
     @RequestMapping("saveAttrInfo")
     @ResponseBody
-    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
+    public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo) {
         String success = attrService.saveAttrInfo(pmsBaseAttrInfo);
         return success;
     }
+
     @RequestMapping("getAttrValueList")
     @ResponseBody
-    public List<PmsBaseAttrValue> getAttrValueList(String attrId){
+    public List<PmsBaseAttrValue> getAttrValueList(String attrId) {
         List<PmsBaseAttrValue> pmsBaseAttrValues = attrService.getAttrValueList(attrId);
         return pmsBaseAttrValues;
     }
+
     @RequestMapping("baseSaleAttrList")
     @ResponseBody
-    public List<PmsBaseSaleAttr> baseSaleAttrList(){
+    public List<PmsBaseSaleAttr> baseSaleAttrList() {
         List<PmsBaseSaleAttr> pmsBaseSaleAttrs = attrService.baseSaleAttrList();
         return pmsBaseSaleAttrs;
     }

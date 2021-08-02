@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @MapperScan(basePackages = "com.atguigu.gmall.manage.mapper")
 public class GmallManageWebApplication {
 

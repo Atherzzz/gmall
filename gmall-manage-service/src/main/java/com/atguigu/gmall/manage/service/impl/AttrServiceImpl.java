@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+
 @Service
 public class AttrServiceImpl implements AttrService {
     @Autowired
@@ -21,31 +22,36 @@ public class AttrServiceImpl implements AttrService {
     PmsBaseAttrValueMapper pmsBaseAttrValueMapper;
     @Autowired
     PmsBaseSaleAttrMapper pmsBaseSaleAttrMapper;
+
     @Override
     public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
         PmsBaseAttrInfo pmsBaseAttrInfo = new PmsBaseAttrInfo();
         pmsBaseAttrInfo.setCatalog3Id(catalog3Id);
         List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.select(pmsBaseAttrInfo);
+        for (PmsBaseAttrInfo pmsBaseAttrInfo1 : pmsBaseAttrInfos) {
+            PmsBaseAttrValue pmsBaseAttrValue = new PmsBaseAttrValue();
+            pmsBaseAttrValue.setAttrId(pmsBaseAttrInfo1.getId());
+            pmsBaseAttrInfo1.setAttrValueList(pmsBaseAttrValueMapper.select(pmsBaseAttrValue));
+        }
         return pmsBaseAttrInfos;
     }
 
     @Override
     public String saveAttrInfo(PmsBaseAttrInfo pmsBaseAttrInfo) {
         String id = pmsBaseAttrInfo.getId();
-        if(id == null){
+        if (id == null) {
             pmsBaseAttrInfoMapper.insertSelective(pmsBaseAttrInfo);
             List<PmsBaseAttrValue> attrValueList = pmsBaseAttrInfo.getAttrValueList();
             for (PmsBaseAttrValue pmsBaseAttrValue : attrValueList) {
                 pmsBaseAttrValue.setAttrId(pmsBaseAttrInfo.getId());
                 pmsBaseAttrValueMapper.insertSelective(pmsBaseAttrValue);
             }
-        }
-        else{
+        } else {
             List<PmsBaseAttrValue> pmsBaseAttrValues = pmsBaseAttrInfo.getAttrValueList();
             Example example = new Example(PmsBaseAttrValue.class);
             example.createCriteria().andEqualTo("attrId", id);
             pmsBaseAttrValueMapper.deleteByExample(example);
-            for(PmsBaseAttrValue pmsBaseAttrValue:pmsBaseAttrValues){
+            for (PmsBaseAttrValue pmsBaseAttrValue : pmsBaseAttrValues) {
                 pmsBaseAttrValueMapper.insertSelective(pmsBaseAttrValue);
             }
         }

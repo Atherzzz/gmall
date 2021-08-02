@@ -23,6 +23,7 @@ public class CatalogServiceImpl implements CatalogService {
 
     @Autowired
     PmsBaseCatalog3Mapper pmsBaseCatalog3Mapper;
+
     @Override
     public List<PmsBaseCatalog1> getCatalog1() {
         return pmsBaseCatalog1Mapper.selectAll();
@@ -33,7 +34,8 @@ public class CatalogServiceImpl implements CatalogService {
         PmsBaseCatalog2 pmsBaseCatalog2 = new PmsBaseCatalog2();
         pmsBaseCatalog2.setCatalog1Id(catalog1Id);
         List<PmsBaseCatalog2> pmsBaseCatalog2s = pmsBaseCatalog2Mapper.select(pmsBaseCatalog2);
-        return pmsBaseCatalog2s;}
+        return pmsBaseCatalog2s;
+    }
 
     @Override
     public List<PmsBaseCatalog3> getCatalog3(String catalog2Id) {

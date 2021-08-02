@@ -19,20 +19,21 @@ public class UserController {
 
     @RequestMapping("getReceiveAddressByMemberId")
     @ResponseBody
-    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId){
+    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId) {
         List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = userService.getReceiveAddressByMemberId(memberId);
         return umsMemberReceiveAddresses;
     }
 
     @RequestMapping("getAllUser")
     @ResponseBody
-    public List<UmsMember> getAllUser(){
+    public List<UmsMember> getAllUser() {
         List<UmsMember> umsMembers = userService.getAllUser();
         return umsMembers;
     }
+
     @RequestMapping("addUser")
     @ResponseBody
-    public int addUser(String id, String memberLevelId, String username, String password, String nickname, String phone, int status, Date createTime, String icon, int gender, Date birthday, String city, String job, String personalizedSignature, int sourceType, int integration, int growth, int luckeyCount, int historyIntegration){
+    public int addUser(String id, String memberLevelId, String username, String password, String nickname, String phone, int status, Date createTime, String icon, int gender, Date birthday, String city, String job, String personalizedSignature, int sourceType, int integration, int growth, int luckeyCount, int historyIntegration) {
         UmsMember newUser = new UmsMember();
         newUser.setId(id);
         newUser.setMemberLevelId(memberLevelId);
@@ -59,13 +60,14 @@ public class UserController {
 
     @RequestMapping("deleteUser")
     @ResponseBody
-    public int deleteUser(String Id){
+    public int deleteUser(String Id) {
         int res = userService.deleteUser(Id);
         return res;
     }
+
     @RequestMapping("updateUser")
     @ResponseBody
-    public int updateUser(String id, String memberLevelId, String username, String password, String nickname, String phone, int status, Date createTime, String icon, int gender, Date birthday, String city, String job, String personalizedSignature, int sourceType, int integration, int growth, int luckeyCount, int historyIntegration){
+    public int updateUser(String id, String memberLevelId, String username, String password, String nickname, String phone, int status, Date createTime, String icon, int gender, Date birthday, String city, String job, String personalizedSignature, int sourceType, int integration, int growth, int luckeyCount, int historyIntegration) {
         UmsMember newUser = new UmsMember();
         newUser.setId(id);
         newUser.setMemberLevelId(memberLevelId);
@@ -89,15 +91,17 @@ public class UserController {
         int res = userService.updateUser(newUser);
         return res;
     }
+
     @RequestMapping("deleteAddress")
     @ResponseBody
-    public int deleteAddress(String memberId){
+    public int deleteAddress(String memberId) {
         int res = userService.deleteAddress(memberId);
         return res;
     }
+
     @RequestMapping("addAddress")
     @ResponseBody
-    public int addAddress(String id, String memberId, String  name, String  phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress){
+    public int addAddress(String id, String memberId, String name, String phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
         UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
         umsMemberReceiveAddress.setId(id);
         umsMemberReceiveAddress.setMemberId(memberId);
@@ -112,9 +116,10 @@ public class UserController {
         int res = userService.addAddress(umsMemberReceiveAddress);
         return res;
     }
+
     @RequestMapping("changeAddress")
     @ResponseBody
-    public int changeAddress(String id, String memberId, String  name, String  phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress){
+    public int changeAddress(String id, String memberId, String name, String phoneNumber, int defaultStatus, String postCode, String province, String city, String region, String detailAddress) {
         UmsMemberReceiveAddress umsMemberReceiveAddress = new UmsMemberReceiveAddress();
         umsMemberReceiveAddress.setId(id);
         umsMemberReceiveAddress.setMemberId(memberId);
@@ -129,9 +134,10 @@ public class UserController {
         int res = userService.changeAddress(umsMemberReceiveAddress);
         return res;
     }
+
     @RequestMapping("index")
     @ResponseBody
-    public String index(){
+    public String index() {
         return "hello user";
     }
 }
