@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/gmall-service-util/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-web-util/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-item-web/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-redission-test/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

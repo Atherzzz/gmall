@@ -16,6 +16,7 @@
         <module name="gmall-user-service" />
         <module name="gmall-web-util" />
         <module name="gmall-common-util" />
+        <module name="gmall-redission-test" />
         <module name="gmall-item-web" />
       </profile>
     </annotationProcessing>
@@ -27,6 +28,7 @@
       <module name="gmall-manage-service" target="11" />
       <module name="gmall-manage-web" target="11" />
       <module name="gmall-parent" target="11" />
+      <module name="gmall-redission-test" target="11" />
       <module name="gmall-service-util" target="11" />
       <module name="gmall-user" target="11" />
       <module name="gmall-user-service" target="11" />
@@ -39,6 +41,7 @@
       <module name="gmall-item-web" options="" />
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
+      <module name="gmall-redission-test" options="" />
       <module name="gmall-user" options="" />
       <module name="gmall-user-service" options="" />
       <module name="gmall-user-web" options="" />
