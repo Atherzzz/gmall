@@ -9,9 +9,11 @@ import com.atguigu.gmall.manage.mapper.PmsBaseAttrInfoMapper;
 import com.atguigu.gmall.manage.mapper.PmsBaseAttrValueMapper;
 import com.atguigu.gmall.manage.mapper.PmsBaseSaleAttrMapper;
 import com.atguigu.gmall.service.AttrService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -70,5 +72,12 @@ public class AttrServiceImpl implements AttrService {
     public List<PmsBaseSaleAttr> baseSaleAttrList() {
         List<PmsBaseSaleAttr> pmsBaseSaleAttrs = pmsBaseSaleAttrMapper.selectAll();
         return pmsBaseSaleAttrs;
+    }
+
+    @Override
+    public List<PmsBaseAttrInfo> getAttrValueListByValueId(HashSet<String> valueIdSet) {
+        String valueIdStr = StringUtils.join(valueIdSet, ",");
+        List<PmsBaseAttrInfo> pmsBaseAttrInfos = pmsBaseAttrInfoMapper.selectAttrValueListByValueId(valueIdStr);
+        return pmsBaseAttrInfos;
     }
 }

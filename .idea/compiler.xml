@@ -6,29 +6,37 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gmall-api" />
         <module name="gmall-user" />
         <module name="gmall-user-web" />
-        <module name="gmall-manage-web" />
-        <module name="gmall-manage-service" />
+        <module name="gmall-cart-service" />
         <module name="gmall-service-util" />
-        <module name="fastdfs-client-java" />
+        <module name="gmall-search-web" />
         <module name="gmall-user-service" />
         <module name="gmall-web-util" />
-        <module name="gmall-common-util" />
         <module name="gmall-redission-test" />
+        <module name="gmall-api" />
+        <module name="gmall-manage-web" />
+        <module name="gmall-manage-service" />
+        <module name="fastdfs-client-java" />
+        <module name="gmall-search-service" />
+        <module name="gmall-common-util" />
         <module name="gmall-item-web" />
+        <module name="gmall-cart-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="fastdfs-client-java" target="1.6" />
       <module name="gmall-api" target="11" />
+      <module name="gmall-cart-service" target="11" />
+      <module name="gmall-cart-web" target="11" />
       <module name="gmall-common-util" target="11" />
       <module name="gmall-item-web" target="11" />
       <module name="gmall-manage-service" target="11" />
       <module name="gmall-manage-web" target="11" />
       <module name="gmall-parent" target="11" />
       <module name="gmall-redission-test" target="11" />
+      <module name="gmall-search-service" target="11" />
+      <module name="gmall-search-web" target="11" />
       <module name="gmall-service-util" target="11" />
       <module name="gmall-user" target="11" />
       <module name="gmall-user-service" target="11" />
@@ -38,10 +46,14 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gmall-cart-service" options="" />
+      <module name="gmall-cart-web" options="" />
       <module name="gmall-item-web" options="" />
       <module name="gmall-manage-service" options="" />
       <module name="gmall-manage-web" options="" />
       <module name="gmall-redission-test" options="" />
+      <module name="gmall-search-service" options="" />
+      <module name="gmall-search-web" options="" />
       <module name="gmall-user" options="" />
       <module name="gmall-user-service" options="" />
       <module name="gmall-user-web" options="" />

@@ -78,12 +78,12 @@ public class SkuServiceImpl implements SkuService {
         else{
             System.out.println("缓存中不存在该信息， ip 为" + ip +" 用户" + Thread.currentThread().getName()+"申请锁" + "sku:"+skuId+":lock");
             String token = UUID.randomUUID().toString();
-            String OK = jedis.set("sku:"+skuId+":lock", token,"nx", "px", 10000);
+            String OK = jedis.set("sku:"+skuId+":lock", token,"nx", "px", 100);
             if(StringUtils.isNotBlank(OK)&&OK.equals("OK")){
                 System.out.println("ip 为" + ip +" 用户" + Thread.currentThread().getName()+ "拥有访问数据库的权限， 有效时间10秒");
                 pmsSkuInfo = getSkuByIdFromDb(skuId);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -101,7 +101,7 @@ public class SkuServiceImpl implements SkuService {
             }else{
                 System.out.println("ip 为" + ip +" 用户" + Thread.currentThread().getName()+ "没有拿到锁，开始自旋");
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(30);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -115,6 +115,19 @@ public class SkuServiceImpl implements SkuService {
     @Override
     public List<PmsSkuInfo> getSkuSaleAttrValueListBySpu(String productId) {
         List<PmsSkuInfo> pmsSkuInfos = pmsSkuInfoMapper.getSkuSaleAttrValueListBySpu(productId);
+        return pmsSkuInfos;
+    }
+
+    @Override
+    public List<PmsSkuInfo> getAllSku(String catalog3Id) {
+        List<PmsSkuInfo> pmsSkuInfos = pmsSkuInfoMapper.selectAll();
+        for (PmsSkuInfo pmsSkuInfo : pmsSkuInfos) {
+            String skuId = pmsSkuInfo.getId();
+            PmsSkuAttrValue pmsSkuAttrValue = new PmsSkuAttrValue();
+            pmsSkuAttrValue.setSkuId(skuId);
+            List<PmsSkuAttrValue> select = pmsSkuAttrValueMapper.select(pmsSkuAttrValue);
+            pmsSkuInfo.setSkuAttrValueList(select);
+        }
         return pmsSkuInfos;
     }
 }

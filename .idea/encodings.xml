@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/fastdfs-client-java/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/fastdfs-client-java/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-cart-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-cart-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-common-util/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-common-util/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-item-web/src/main/java" charset="UTF-8" />
@@ -13,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/gmall-parent/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-redission-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-search-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-search-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-service-util/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-user-service/src/main/resources" charset="UTF-8" />
